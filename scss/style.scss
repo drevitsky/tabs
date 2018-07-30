@@ -1,0 +1,243 @@
+@import '_normalize';
+
+
+
+$text-font: 'Lato', sans-serif;
+$text-color: #b7bacd;
+$green-color: #13e28d;
+$bg-color: #212534;
+$bg-head-color: #2b3040;
+$star-color:#4b536b;
+$star-color-gold:#ffdd3f;
+$offset: 30px;
+//$gradient: linear-gradient(#1ae77f,#00d4be);
+$gradient: linear-gradient(to right, #fff, red);
+* {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+	font-size: 10px;
+}
+
+body {
+	font: 400 1.4rem/1.5 $text-font;
+	min-height: 100%;
+	color: $text-color;
+	background:transparent url('../img/bg.jpg') left top no-repeat;
+	background-size: cover;
+}
+
+.container {
+	width: 1140px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.card {
+	margin: 150px auto;
+	width: 600px;
+	height: 550px;
+	background-color: $bg-color;
+	&__head {
+		width: 100%;
+		height: 115px;
+		background-color: $bg-head-color;
+	}
+
+}
+.tabs{ 
+	max-width: 600px;
+	&__caption {
+		display: flex;
+		flex-wrap: wrap;
+  		list-style: none;
+  		position: relative;
+  		margin: -1px 0 0 -1px;
+  		//outline : 1px dotted red;
+	}
+
+
+}
+.tabs__content {
+  display: none; /* по умолчанию прячем все блоки */
+  padding: 45px;
+}
+.tabs__content.active {
+  display: block; /* по умолчанию показываем нужный блок */
+ //outline : 1px dotted yellow;
+}
+.tabs__caption {
+	display: flex;
+	justify-content: space-around;
+}
+
+.tabs__caption li {
+	width: 150px;
+	height: 115px;
+  	padding: 0;
+  	margin: 1px 0 0 1px;
+  	position: relative; 
+  	
+  	text-align: center;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	align-items: center;
+  		&:hover {
+  			color: #fff;
+  		}
+  	
+
+  	& img,svg{
+  		margin-bottom: 5px;
+  		fill: rgb(141, 145, 163);
+
+  	}
+}
+.tabs__caption li:hover svg {
+  		fill:#fff;
+
+  	}
+.tabs__caption li:not(.active) {
+  cursor: pointer;
+  
+}
+.tabs__caption li.active {
+  border-bottom: 2px solid $text-color;
+
+}
+
+.cont{
+	position: relative;
+	&:after {
+		content: "7.8";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-60%);
+		color: $text-color;
+		font-size: 20px;
+		padding: 0;
+		margin: 0;
+		line-height: 20px;
+		font-weight: 400;
+
+		z-index: 5;
+	}
+}
+.circle {
+	fill:transparent;
+	
+}
+#gradient {
+	fill:none;
+	
+
+}
+.wrap {
+	display: flex;
+	justify-content: space-between;
+	&__left {
+		width: 33%;
+		//outline : 1px dotted yellow;
+		 }
+	&__right { 
+		width: 66%;
+		//outline : 1px dotted red;
+		padding: 0 0 0 25px;
+	}
+	&__text {
+		font-size: 14px;
+	}
+	&__head {
+		display: flex;
+		justify-content: space-between;
+
+		&-text {
+			padding: 10px 0 0 0 ;	
+			//outline : 1px dotted yellow;
+		}
+
+		&-title {
+			font-size: 3.2rem;
+			color: #fff;
+			font-weight: 400;
+			margin: 0;
+			line-height: 3.2rem;
+		}
+		&-subtitle {
+			font-size: 14px;
+			color: #fff;
+		}
+	}
+	&__price {
+
+		&-sale {
+			color: $star-color-gold;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+		&-value {
+			font-size: 32px;
+			&:before {
+				content:attr(data-currency) ;
+				padding-right: 5px;
+			}
+		}
+	}
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+	}
+	&__btn {
+		color: #fff;
+		background-color: $green-color;
+		text-transform: uppercase;
+		font-size: 16px;
+		line-height: 8px;
+		border: none;
+		outline: none;
+		border-radius: 2px;
+		font-weight: 700;
+		max-width: 165px;
+		padding: 20px;
+		&:hover,
+		&:focus {
+			background-color:darken($green-color, 10%);
+		} 
+	}
+}
+.score{
+	&__list {
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+	}
+	&__star {
+			display: inline-block;
+			width: 19px;
+			height: 19px;
+			margin: 0 0 0 9px;
+			svg {
+				fill: $star-color-gold;
+				&:hover {
+					fill: darken($star-color-gold, 20%);
+				}
+			}
+
+			
+	}
+
+}
+[data-score="1"] .score__star:nth-of-type(n+2) svg,
+[data-score="2"] .score__star:nth-of-type(n+3) svg,
+[data-score="3"] .score__star:nth-of-type(n+4) svg,
+[data-score="4"] .score__star:nth-of-type(n+5) svg {
+				fill: $star-color;
+				&:hover {
+					fill: lighten($star-color, 20%);
+				}
+}
+
