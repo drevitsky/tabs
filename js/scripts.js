@@ -11,5 +11,45 @@ $(document).ready(function(){
     console.log(n);
     $('.score__list').attr("data-score", n + 1);
     })
+
+   
+
+$('.data-num').on('click',changecolors);
+var x = 1, y = 10;
+ 
+function changecolors() {
+    if (x == 1 && y > 0)
+    {setInterval(change, 1000);}
+     else {return false}
+
+}
+
+function change() {
+    if (x == 1 && y > 0) {
+       color = "red";
+        x ++;
+        y --;
+        console.log(x);
+        console.log(y);
+
+    } else  if (x != 1 && y > 0) {
+        color = "yellow";
+        x = 1;
+        console.log(x);
+    }
+        else {
+      color = '#000';
+      $('#scary').addClass('active').fadeIn(600);
+        
+   } 
+    $('.wrap--any').css('background', color);
+     $('.data-num').attr("data-num", y);
+    console.log(color);
+
+    
+}
+
+
+
 });
 

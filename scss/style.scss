@@ -176,7 +176,9 @@ body {
 		&-sale {
 			color: $star-color-gold;
 			text-transform: uppercase;
-			font-size: 12px;
+			font-size: 13px;
+			line-height: 1.66;
+			font-weight: 700;
 		}
 		&-value {
 			font-size: 32px;
@@ -190,6 +192,7 @@ body {
 		display: flex;
 		justify-content: space-between;
 		align-items:center;
+		margin-top: 60px;
 	}
 	&__btn {
 		color: #fff;
@@ -202,14 +205,26 @@ body {
 		border-radius: 2px;
 		font-weight: 700;
 		max-width: 165px;
-		padding: 20px;
+		padding: 20px 30px;
 		&:hover,
 		&:focus {
 			background-color:darken($green-color, 10%);
 		} 
 	}
+	&--any {
+		//background-color: red;
+		margin: 0 auto;
+		color: #fff;
+		font-size: 30px;
+		width: 400px;
+		height: 300px;
+		transition: all 2s ease;
+		position: relative;
+		text-align: center;
+	}
 }
 .score{
+	margin-top: 25px;
 	&__list {
 			margin: 0;
 			padding: 0;
@@ -241,3 +256,37 @@ body {
 				}
 }
 
+.data-num {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	padding: 0;
+
+	&:before {
+		position: absolute;
+		top: 50%;
+		left:50%;
+		transform: translate(-50%, -50%);
+		font-size: 100px;
+				content:attr(data-num) ;
+				padding-right: 5px;
+			}
+}
+#scary {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	
+	background:transparent url('../img/scary.jpg') top no-repeat;
+	background-size: cover;
+	opacity: 0;
+	z-index: 5;
+	transition: all 0.8s;
+	transform: scale(0.01);
+}
+#scary.active {
+	transition: all 0.8s;
+	opacity: 1;
+	transform: scale(3.5);
+}
